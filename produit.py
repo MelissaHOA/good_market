@@ -1,6 +1,5 @@
 import dataclasses
 from abc import *
-from enum import Enum
 
 from commun import *
 
@@ -13,9 +12,7 @@ class Produit:
     type_produit: TypeProduit = TypeProduit.AUCUN
     """Type du produit (par exemple Légume)"""
 
-
-
-    def prix_quantite(self,qte : int | float) -> Euro:
+    def prix_quantite(self, qte: int | float) -> Euro:
         return Euro(self.prix_unite_c.__centimes * qte)
 
     @abstractmethod
