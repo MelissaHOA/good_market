@@ -13,6 +13,12 @@ class Produit:
     type_produit: TypeProduit
     """Type du produit (par exemple Légume)"""
 
+
+    @abstractmethod
+    def prix(self) -> Euro:
+        """Retourne le prix du produit"""
+        ...
+
     @abstractmethod
     def prix_quantite(self, qte: int | float) -> Euro:
         """

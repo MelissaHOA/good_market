@@ -9,6 +9,9 @@ from produit import *
 class ProduitKg(Produit):
     poids_g: int
 
+    def prix(self) -> Euro:
+        return self.prix_quantite(self.poids_g)
+
     def prix_quantite(self, qte: int | float) -> Euro:
         return Euro.new_float((self.prix_unite.centimes() * (qte / 1000.0)) / 100.0)
 
