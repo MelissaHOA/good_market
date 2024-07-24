@@ -18,42 +18,59 @@ produits: List[Produit] = [
 
 ]
 
-panier: List[Produit] = []
+
+historique = []
 
 while True:
-    print(produits)
 
-    print("Panier : ", panier)
+    nom = input("Nom : ")
+    prenom = input("Prénom : ")
 
-    pr = input("Nom du produit :").strip().lower()
+    panier: List[Produit] = []
 
-    matchs = []
+    while True:
+        print(produits)
+
+        print("Panier : ", panier)
+
+        pr = input("Nom du produit :").strip().lower()
+
+        matchs = []
 
 
-    # Trouver produit
-    for x in produits:
-        if (x.nom.lower()).startswith(pr):
-            matchs.append(x)
+        # Trouver produit
+        for x in produits:
+            if (x.nom.lower()).startswith(pr):
+                matchs.append(x)
 
-    if len(matchs) == 1 and pr != "":
-        x = matchs[0]
-        qte = x.demander_quantite();
-        ret = x.prendre_quantite(qte)
-        if not isinstance(ret, QuantiteRes):
-            print("Prix : ", x.prix_quantite(qte))
-            panier.append(ret)
-        else:
-            print("Error", ret)
-            continue
+        if len(matchs) == 1 and pr != "":
+            x = matchs[0]
+            qte = x.demander_quantite();
+            ret = x.prendre_quantite(qte)
+            if not isinstance(ret, QuantiteRes):
+                print("Prix : ", x.prix_quantite(qte))
+                panier.append(ret)
+            else:
+                print("Error", ret)
+                continue
 
-    if input("Continuer ? : ").lower().strip().startswith("n"):
-        break
+        if input("Continuer ? : ").lower().strip().startswith("n"):
+            break
 
-print("Panier :", panier)
+    print(nom,prenom)
 
-sm = Euro.new(0)
+    print("Panier :", panier)
 
-for x in panier:
-    sm += x.prix()
+    sm = Euro.new(0)
 
-print("Total :", sm)
+    for x in panier:
+        sm += x.prix()
+
+    print("Total :", sm)
+
+    historique.append((nom,prenom,panier,sm))
+
+    break
+
+
+print("Clients",historique)
