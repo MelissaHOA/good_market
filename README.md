@@ -11,5 +11,3 @@ A son arrivée, un client indique son nom et son prénom et un menu lui permet d
 Une fois qu’il a indiqué que ses achats sont terminés, un ticket de caisse lui est affiché, récapitulant ses achats et totalisant la somme à payer.
 Le stock de chaque fruit et légume est naturellement tenu à jour après chaque achat.
 Le bilan de la journée permet quant à lui d’afficher la liste des clients, le total de leur achat, ainsi que le stock restant de chaque fruit et légume.
-
-- Exemple
