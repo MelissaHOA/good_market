@@ -10,7 +10,7 @@ class ProduitKg(Produit):
         return Euro.new_float((self.prix_unite.centimes() * (qte / 1000.0)) / 100.0)
 
     def prendre_quantite(self, qte: int | float) -> QuantiteRes:
-        g = qte
+        g = int(qte)
         if g > self.poids_g:
             return QuantiteRes.PAS_ASSEZ
         self.poids_g -= g
@@ -29,13 +29,13 @@ class ProduitKg(Produit):
                 if data.endswith("kg"):
                     print(data)
                     data = data[0:len(data) - 2]
-                    w = float(data) * 1000
+                    w = int(float(data) * 1000)
                 elif data.endswith("g"):
                     data = data[0:len(data) - 1]
-                    w = float(data)
+                    w = int(float(data))
                 else:
                     data = data[0:len(data) - 1]
-                    w = float(data)
+                    w = int(float(data))
             except ValueError:
                 stop = False
         return w

@@ -12,3 +12,8 @@ produits : List[Produit] = []
 print(produits)
 
 pr = input("Nom du produit")
+
+matchs = []
+
+for pr in produits:
+    pass

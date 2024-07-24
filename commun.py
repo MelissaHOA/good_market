@@ -14,7 +14,7 @@ class Euro:
     @classmethod
     def new_float(cls,f: float | int) -> 'Euro':
         if f is int:
-            return Euro.new(f)
+            return Euro.new(int(f))
         else:
             rd = math.modf(f)
             return Euro.new(int(rd[1]),int(rd[0]*100.0))
