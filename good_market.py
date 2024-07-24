@@ -12,11 +12,8 @@ from produit_kg import *
 
 from produit_piece import *
 
-produits: List[Produit] = [
-    ProduitKg("Carrotte", Euro.new(5), TypeProduit.LEGUME, 6000),
-    Produit_Piece("Pomme", Euro.new(9), TypeProduit.FRUIT, 6000)
+from liste_produits import produits
 
-]
 
 
 historique = []
@@ -26,10 +23,16 @@ while True:
     nom = input("Nom : ")
     prenom = input("Prénom : ")
 
+    if nom == "":
+        break
+
     panier: List[Produit] = []
 
     while True:
-        print(produits)
+        print("Produits :")
+
+        for i in produits:
+            print("",i)
 
         print("Panier : ", panier)
 
@@ -70,7 +73,7 @@ while True:
 
     historique.append((nom,prenom,panier,sm))
 
-    break
+
 
 
 print("Clients",historique)
