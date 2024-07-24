@@ -12,6 +12,7 @@ class Produit:
     type_produit: TypeProduit = TypeProduit.AUCUN
     """Type du produit (par exemple Légume)"""
 
+    @abstractmethod
     def prix_quantite(self, qte: int | float) -> Euro:
         return Euro(self.prix_unite_c.__centimes * qte)
 
