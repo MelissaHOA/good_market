@@ -7,7 +7,7 @@ from commun import *
 @dataclasses.dataclass
 class Produit:
     nom: str
-    prix_unite_c: Euro
+    prix_unite: Euro
     """Prix par unité de produit (kg, pièce, ...)"""
     type_produit: TypeProduit
     """Type du produit (par exemple Légume)"""
@@ -19,7 +19,7 @@ class Produit:
         :param qte:  Quantitée
         :return: Prix en euros
         """
-        return Euro(self.prix_unite_c.centimes() * qte)
+        return Euro(self.prix_unite.centimes() * qte)
 
     @abstractmethod
     def prendre_quantite(self, qte: int | float) -> QuantiteRes:
