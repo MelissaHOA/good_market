@@ -8,34 +8,29 @@ from typing import List
 from commun import *
 from produit import Produit
 
-
 from produit_kg import *
 
 from produit_piece import *
 
-produits : List[Produit] = [
-    ProduitKg("Carrotte",Euro.new(5),TypeProduit.LEGUME,6000),
-    Produit_Piece("Pomme", Euro.new(9), TypeProduit.FRUIT,6000)
+produits: List[Produit] = [
+    ProduitKg("Carrotte", Euro.new(5), TypeProduit.LEGUME, 6000),
+    Produit_Piece("Pomme", Euro.new(9), TypeProduit.FRUIT, 6000)
 
 ]
 
-
-panier : List[Produit] = []
-
-
+panier: List[Produit] = []
 
 while True:
     print(produits)
 
-    print("Panier : ",panier)
+    print("Panier : ", panier)
 
     pr = input("Nom du produit :").strip().lower()
-
-
 
     matchs = []
 
 
+    # Trouver produit
     for x in produits:
         if (x.nom.lower()).startswith(pr):
             matchs.append(x)
@@ -44,22 +39,21 @@ while True:
         x = matchs[0]
         qte = x.demander_quantite();
         ret = x.prendre_quantite(qte)
-        if not isinstance(ret,QuantiteRes):
-            print("Prix : ",x.prix_quantite(qte))
+        if not isinstance(ret, QuantiteRes):
+            print("Prix : ", x.prix_quantite(qte))
             panier.append(ret)
         else:
-            print("Error",ret)
+            print("Error", ret)
             continue
 
     if input("Continuer ? : ").lower().strip().startswith("n"):
         break
 
-
-print("Panier :",panier)
+print("Panier :", panier)
 
 sm = Euro.new(0)
 
 for x in panier:
     sm += x.prix()
 
-print("Total :",sm)
+print("Total :", sm)
