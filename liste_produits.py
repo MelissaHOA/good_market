@@ -1,9 +1,11 @@
+from typing import List
+
 from commun import *
 from produit import *
 from produit_piece import *
 from produit_kg import *
 
-produits: [Produit] = [
+produits: List[Produit] = [
     ProduitKg("Clementine",Euro.new(2,90),TypeProduit.FRUIT,6000),
     ProduitKg("Datte",Euro.new(7),TypeProduit.FRUIT,3000),
     ProduitKg("Grenade",Euro.new(3,50),TypeProduit.FRUIT,3000),
