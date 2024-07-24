@@ -73,7 +73,12 @@ while True:
 
     historique.append((nom,prenom,panier,sm))
 
-
+print("")
 
 
 print("Clients",historique)
+
+print("Stock restant :")
+
+for i in produits:
+    print("", i)
