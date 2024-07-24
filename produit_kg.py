@@ -8,6 +8,7 @@ from produit import *
 @dataclasses.dataclass
 class ProduitKg(Produit):
     poids_g: int
+    """Grammes"""
 
     def prix(self) -> Euro:
         return self.prix_quantite(self.poids_g)
