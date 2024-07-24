@@ -14,6 +14,11 @@ class Produit:
 
     @abstractmethod
     def prix_quantite(self, qte: int | float) -> Euro:
+        """
+        Renvoie le prix pour une quantitée
+        :param qte:  Quantitée
+        :return: Prix en euros
+        """
         return Euro(self.prix_unite_c.centimes() * qte)
 
     @abstractmethod
