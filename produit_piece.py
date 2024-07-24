@@ -13,7 +13,7 @@ class Produit_Piece(Produit):
     def prix_quantite(self, qte: int) -> Euro:
         if qte is not int:
             raise ValueError("La quantité saisi doit être un nombre entier")
-        return Euro(self.prix_unite_c.centimes() * qte)
+        return Euro(self.prix_unite.centimes() * qte)
 
 
     @abstractmethod

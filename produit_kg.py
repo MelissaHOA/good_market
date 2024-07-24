@@ -7,7 +7,7 @@ class ProduitKg(Produit):
     poids_g: int
 
     def prix_quantite(self, qte: int | float) -> Euro:
-        return Euro.new_float((self.prix_unite_c.centimes() * (qte / 1000.0))/100.0)
+        return Euro.new_float((self.prix_unite.centimes() * (qte / 1000.0)) / 100.0)
 
     def prendre_quantite(self, qte: int | float) -> QuantiteRes:
         g = qte
