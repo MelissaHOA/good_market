@@ -9,7 +9,7 @@ class Produit:
     nom: str
     prix_unite_c: Euro
     """Prix par unité de produit (kg, pièce, ...)"""
-    type_produit: TypeProduit = TypeProduit.AUCUN
+    type_produit: TypeProduit
     """Type du produit (par exemple Légume)"""
 
     @abstractmethod
