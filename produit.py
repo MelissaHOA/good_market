@@ -21,7 +21,7 @@ class Produit:
         """
         ...
     @abstractmethod
-    def prendre_quantite(self, qte: int | float) -> QuantiteRes:
+    def prendre_quantite(self, qte: int | float) -> QuantiteRes | 'Produit':
         """
         Prend la quantité de produit à acheter
 
@@ -29,6 +29,7 @@ class Produit:
         :return: True si la quantité est valide
         """
         ...
+
 
     @abstractmethod
     def demander_quantite(self) -> float | int:

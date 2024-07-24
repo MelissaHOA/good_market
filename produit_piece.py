@@ -1,3 +1,4 @@
+import copy
 import dataclasses
 from produit import *
 from commun import *
@@ -17,13 +18,15 @@ class Produit_Piece(Produit):
 
 
     @abstractmethod
-    def prendre_quantite(self, qte: int | float) -> QuantiteRes:
+    def prendre_quantite(self, qte: int | float) -> QuantiteRes | Produit:
         if qte is not int:
             raise ValueError("La quantité saisi doit être un nombre entier")
         if qte > self.stock:
             return QuantiteRes.PAS_ASSEZ
         self.stock -= int(qte)
-        return QuantiteRes.OK
+        produit = copy.copy(self)
+        produit.stock = int(qte)
+        return produit
 
 
     @abstractmethod
