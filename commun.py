@@ -13,7 +13,7 @@ class Euro:
 
     @classmethod
     def new_float(cls,f: float | int) -> 'Euro':
-        if f is int:
+        if isinstance(f,int):
             return Euro.new(int(f))
         else:
             rd = math.modf(f)

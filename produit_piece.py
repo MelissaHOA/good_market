@@ -16,13 +16,13 @@ class Produit_Piece(Produit):
 
     @abstractmethod
     def prix_quantite(self, qte: int | float) -> Euro:
-        if qte is not int:
+        if not isinstance(qte,int):
             raise ValueError("La quantité saisi doit être un nombre entier")
         return Euro(self.prix_unite.centimes() * int(qte))
 
     @abstractmethod
     def prendre_quantite(self, qte: int | float) -> QuantiteRes | typing.Self:
-        if qte is not int:
+        if not isinstance(qte,int):
             raise ValueError("La quantité saisi doit être un nombre entier")
         if qte > self.stock:
             return QuantiteRes.PAS_ASSEZ
