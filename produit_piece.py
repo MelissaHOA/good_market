@@ -1,5 +1,7 @@
 import copy
 import dataclasses
+import typing
+
 from produit import *
 from commun import *
 
@@ -18,7 +20,7 @@ class Produit_Piece(Produit):
 
 
     @abstractmethod
-    def prendre_quantite(self, qte: int | float) -> QuantiteRes | Produit:
+    def prendre_quantite(self, qte: int | float) -> QuantiteRes | typing.Self:
         if qte is not int:
             raise ValueError("La quantité saisi doit être un nombre entier")
         if qte > self.stock:

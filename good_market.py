@@ -8,7 +8,16 @@ from typing import List
 from commun import *
 from produit import Produit
 
-produits : List[Produit] = []
+
+from produit_kg import *
+
+from produit_piece import *
+
+produits : List[Produit] = [
+    ProduitKg("Carrotte",Euro.new(5),TypeProduit.LEGUME),
+    ProduitKg("Pomme", Euro.new(9), TypeProduit.FRUIT)
+
+]
 
 
 panier : List[Produit] = []
@@ -37,8 +46,8 @@ while True:
         x = matchs[0]
         qte = x.demander_quantite();
         ret = x.prendre_quantite(qte)
-        if ret == QuantiteRes.OK:
-            panier.append(x)
+        if ret is Produit:
+            panier.append(ret)
         else:
             print(ret)
             continue;

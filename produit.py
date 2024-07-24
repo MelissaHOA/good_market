@@ -1,4 +1,5 @@
 import dataclasses
+import typing
 from abc import *
 
 from commun import *
@@ -21,7 +22,7 @@ class Produit:
         """
         ...
     @abstractmethod
-    def prendre_quantite(self, qte: int | float) -> QuantiteRes | 'Produit':
+    def prendre_quantite(self, qte: int | float) -> QuantiteRes | typing.Self:
         """
         Prend la quantité de produit à acheter
 

@@ -1,4 +1,5 @@
 import copy
+import typing
 
 from commun import *
 from produit import *
@@ -11,13 +12,13 @@ class ProduitKg(Produit):
     def prix_quantite(self, qte: int | float) -> Euro:
         return Euro.new_float((self.prix_unite.centimes() * (qte / 1000.0)) / 100.0)
 
-    def prendre_quantite(self, qte: int | float) -> QuantiteRes | Produit:
+    def prendre_quantite(self, qte: int | float) -> QuantiteRes | typing.Self:
         g = int(qte)
         if g > self.poids_g:
             return QuantiteRes.PAS_ASSEZ
         self.poids_g -= g
         prd = copy.copy(self)
-        prd.poids_g = qte
+        prd.poids_g = int(qte)
         return prd
 
     def demander_quantite(self) -> float | int:
