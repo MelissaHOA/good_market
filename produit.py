@@ -14,7 +14,7 @@ class Produit:
 
     @abstractmethod
     def prix_quantite(self, qte: int | float) -> Euro:
-        return Euro(self.prix_unite_c.__centimes * qte)
+        return Euro(self.prix_unite_c.centimes() * qte)
 
     @abstractmethod
     def prendre_quantite(self, qte: int | float) -> QuantiteRes:
