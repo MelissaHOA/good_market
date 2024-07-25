@@ -37,6 +37,10 @@ class Produit:
         """
         ...
 
+
+    def __str__(self):
+        return f"Produit {self.nom} , prix {self.prix_unite}"
+
     @abstractmethod
     def demander_quantite(self) -> float | int:
         """

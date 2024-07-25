@@ -13,8 +13,13 @@ class ProduitKg(Produit):
     def prix(self) -> Euro:
         return self.prix_quantite(self.poids_g)
 
+    def __str__(self):
+        return super().__str__() + f", poids {self.poids_g}g"
+
     def prix_quantite(self, qte: int | float) -> Euro:
         return Euro.new_float((self.prix_unite.centimes() * (qte / 1000.0)) / 100.0)
+
+
 
     def prendre_quantite(self, qte: int | float) -> QuantiteRes | typing.Self:
         g = int(qte)

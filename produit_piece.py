@@ -29,6 +29,9 @@ class Produit_Piece(Produit):
         produit.stock = int(qte)
         return produit
 
+    def __str__(self):
+        return super().__str__() + f", quantitée {self.stock}"
+
     def demander_quantite(self) -> int:
         qte_saisi = input(f"Saisir la quantité de {self.nom} : ").strip()
         return int(qte_saisi)

@@ -32,9 +32,13 @@ while True:
         print("Produits :")
 
         for i in produits:
-            print("",i)
+            print("",str(i))
 
-        print("Panier : ", panier)
+
+        print("Panier : ")
+        for i in panier:
+            print("-", str(i))
+
 
         pr = input("Nom du produit :").strip().lower()
 
@@ -81,4 +85,4 @@ print("Clients",historique)
 print("Stock restant :")
 
 for i in produits:
-    print("", i)
+    print("", str(i))
